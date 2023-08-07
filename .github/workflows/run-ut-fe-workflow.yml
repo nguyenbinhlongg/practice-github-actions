@@ -1,5 +1,5 @@
 name: Run Unit Test - Angular
-run-name: ${{ github.actor }} is testing out GitHub Actions 
+# run-name: ${{ github.actor }} is testing out GitHub Actions 
 on:
     push:
       branches: [ main ]
@@ -7,7 +7,7 @@ on:
       branches: [ main ]
 
 jobs:
-    build:
+    Run-unit-test:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
