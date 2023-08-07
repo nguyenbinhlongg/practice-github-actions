@@ -15,7 +15,7 @@ describe('AppComponent', () => {
   it(`should have as title 'practice-github-actions'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('practice-github-actions failed');
+    expect(app.title).toEqual('practice-github-actions');
   });
 
   it('should render title', () => {
