@@ -7,13 +7,37 @@ on:
       branches: [ main ]
 
 jobs:
-    Run-unit-test:
+    deploy:
+        name: Deploy
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18.x
-            - run: npm ci
-            - run: npm test
+          - name: Check out sources code
+            uses: actions/checkout@v4
+
+          - name: debug
+            id: debugid
+            env:
+              # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
+              branchname: dev
+            run: |
+              calculatedSha=$(git rev-parse --short ${{ github.sha }})
+              export branch=${{ env.branchname }}/$calculatedSha
+              echo "branch=$branch" >> $GITHUB_OUTPUT
+              git switch -c $branch
+              
+          - name: debug 2
+            env: 
+              branch: ${{ steps.debugid.outputs.branch }}
+            run: |
+              git branch
+              echo "The val: ${{env.branch}}"
+    # Run-unit-test:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - uses: actions/checkout@v3
+    #         - name: Use Node.js
+    #           uses: actions/setup-node@v3
+    #           with:
+    #             node-version: 18.x
+    #         - run: npm ci
+    #         - run: npm test
