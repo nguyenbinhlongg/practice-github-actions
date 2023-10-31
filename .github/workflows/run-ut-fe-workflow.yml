@@ -7,6 +7,23 @@ on:
       branches: [ main ]
 
 jobs:
+    deploy:
+        name: Deploy
+        environment: dev
+        runs-on: ubuntu-latest
+        steps:
+          - name: Check out sources code
+            uses: actions/checkout@v4
+    
+          - name: debug
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
+            run: |
+              calculatedSha=$(git rev-parse --short ${{ github.sha }})
+              echo $calculatedSha
+              echo "newbranch=${{ inputs.environment }}/$calculatedSha" >> $GITHUB_ENV
+              echo $newbranch
+
     Run-unit-test:
         runs-on: ubuntu-latest
         steps:
