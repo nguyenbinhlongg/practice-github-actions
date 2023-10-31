@@ -9,7 +9,6 @@ on:
 jobs:
     deploy:
         name: Deploy
-        environment: dev
         runs-on: ubuntu-latest
         steps:
           - name: Check out sources code
@@ -19,11 +18,11 @@ jobs:
             id: debugid
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
+              branchname: dev
             run: |
               calculatedSha=$(git rev-parse --short ${{ github.sha }})
-              echo "branch=${{ inputs.environment }}/$calculatedSha" >> $GITHUB_OUTPUT
-              export test=$branch
-              echo $test
+              echo "branch=${{ env.branchname }}/$calculatedSha" >> $GITHUB_OUTPUT
+              git switch -c $branch
           - name: debug 2
             run: |
               echo "The val: ${{ steps.debugid.outputs.branch }}"
