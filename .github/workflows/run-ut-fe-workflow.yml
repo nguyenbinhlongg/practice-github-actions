@@ -20,7 +20,8 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
             run: |
               echo "calculatedSha=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
-              echo $calculatedSha
+              echo "calculatedSh2a=test" >> $GITHUB_ENV
+              echo $calculatedSh2a
               echo "newbranch=${{ inputs.environment }}/$calculatedSha" >> $GITHUB_ENV
               echo $newbranch
     # Run-unit-test:
