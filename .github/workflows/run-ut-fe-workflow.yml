@@ -16,14 +16,16 @@ jobs:
             uses: actions/checkout@v4
 
           - name: debug
+            id: debugid
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
             run: |
               calculatedSha=$(git rev-parse --short ${{ github.sha }})
-              export test=$calculatedSha
-              echo $test
-              # echo "newbranch=$calculatedSha" >> $GITHUB_ENV
-              # echo "${{ env.newbranch }}
+              echo "calculatedSha=$calculatedSha" >> $GITHUB_OUTPUT
+              echo $calculatedSha
+          - name: debug 2
+            run: |
+              echo "The val: ${{ steps.debugid.outputs.calculatedSha }}"
     # Run-unit-test:
     #     runs-on: ubuntu-latest
     #     steps:
