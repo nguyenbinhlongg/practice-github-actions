@@ -17,7 +17,7 @@ jobs:
           - name: debug
             id: debugid
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
+              # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
               branchname: dev
             run: |
               calculatedSha=$(git rev-parse --short ${{ github.sha }})
