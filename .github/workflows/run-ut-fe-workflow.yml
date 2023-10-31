@@ -21,7 +21,7 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
             run: |
               calculatedSha=$(git rev-parse --short ${{ github.sha }})
-              echo "branch=${{env.environment}}/$calculatedSha" >> $GITHUB_OUTPUT
+              echo "branch=${{ inputs.environment }}/$calculatedSha" >> $GITHUB_OUTPUT
               export test=$branch
               echo $test
           - name: debug 2
