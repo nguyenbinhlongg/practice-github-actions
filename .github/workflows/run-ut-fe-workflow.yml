@@ -19,8 +19,8 @@ jobs:
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
             run: |
-              calculatedSha=$(git rev-parse --short ${{ github.sha }})
-              echo ${{ calculatedSha }}
+              export calculatedSha=$(git rev-parse --short ${{ github.sha }})
+              echo $calculatedSha
     # Run-unit-test:
     #     runs-on: ubuntu-latest
     #     steps:
