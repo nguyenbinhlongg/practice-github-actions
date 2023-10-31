@@ -21,7 +21,7 @@ jobs:
             run: |
               export calculatedSha=$(git rev-parse --short ${{ github.sha }})
               echo "newbranch=${{ inputs.environment }}/$calculatedSha" >> $GITHUB_ENV
-              echo $newbranch
+              echo "$newbranch"
     # Run-unit-test:
     #     runs-on: ubuntu-latest
     #     steps:
