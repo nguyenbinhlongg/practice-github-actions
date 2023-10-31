@@ -26,8 +26,10 @@ jobs:
               git switch -c $branch
               
           - name: debug 2
+            env: 
+              branch: ${{ steps.debugid.outputs.branch }}
             run: |
-              echo "The val: ${{ steps.debugid.outputs.branch }}"
+              echo "The val: ${{ env.branch }}"
     # Run-unit-test:
     #     runs-on: ubuntu-latest
     #     steps:
