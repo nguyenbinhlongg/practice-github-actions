@@ -30,7 +30,7 @@ jobs:
               branch: ${{ steps.debugid.outputs.branch }}
             run: |
               git branch
-              echo "The val: ${{ env.branch }}"
+              echo "The val: $env.branch"
     # Run-unit-test:
     #     runs-on: ubuntu-latest
     #     steps:
