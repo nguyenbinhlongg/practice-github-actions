@@ -21,8 +21,10 @@ jobs:
               branchname: dev
             run: |
               calculatedSha=$(git rev-parse --short ${{ github.sha }})
-              echo "branch=${{ env.branchname }}/$calculatedSha" >> $GITHUB_OUTPUT
-              git switch -c ${{ steps.debugid.outputs.branch }}
+              export branch=${{ env.branchname }}/$calculatedSha
+              echo "branch=$branch" >> $GITHUB_OUTPUT
+              git switch -c $branch
+              
           - name: debug 2
             run: |
               echo "The val: ${{ steps.debugid.outputs.branch }}"
