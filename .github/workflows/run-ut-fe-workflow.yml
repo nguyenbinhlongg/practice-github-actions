@@ -21,10 +21,6 @@ jobs:
             run: |
               echo ${{ github.actor }}
               echo ${{ github.email }}
-              # calculatedSha=$(git rev-parse --short ${{ github.sha }})
-              # echo ${{ calculatedSha }}
-              # echo "newbranch=${{ inputs.environment + "/" + calculatedSha}}" >> $GITHUB_ENV
-              # echo $newbranch
     Run-unit-test:
         runs-on: ubuntu-latest
         steps:
