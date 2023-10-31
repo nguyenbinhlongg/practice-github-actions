@@ -21,11 +21,12 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
             run: |
               calculatedSha=$(git rev-parse --short ${{ github.sha }})
-              echo "calculatedSha=$calculatedSha" >> $GITHUB_OUTPUT
-              echo $calculatedSha
+              echo "branch=${{env.environment}}/$calculatedSha" >> $GITHUB_OUTPUT
+              export test=$branch
+              echo $test
           - name: debug 2
             run: |
-              echo "The val: ${{ steps.debugid.outputs.calculatedSha }}"
+              echo "The val: ${{ steps.debugid.outputs.branch }}"
     # Run-unit-test:
     #     runs-on: ubuntu-latest
     #     steps:
