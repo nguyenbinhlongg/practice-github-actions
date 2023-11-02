@@ -7,16 +7,15 @@ on:
       branches: [ main ]
     workflow_call:
       inputs:
-         ut-gradle-command:
+         myInput:
             required: false
             type: 'string'
-            default: "test jacocoTestCoverageVerification"
+            default: 'test'
 jobs:
     Run-unit-test:
         runs-on: ubuntu-latest
         steps:
             - name: Run UT
               run: |
-                  export xyz =  (${{ github.inputs.ut-gradle-command }})
-                  echo $xyz
+                  echo "${{ github.event.inputs.myInput }}"
 
