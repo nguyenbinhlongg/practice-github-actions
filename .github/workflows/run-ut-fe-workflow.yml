@@ -17,6 +17,6 @@ jobs:
         steps:
             - name: Run UT
               run: |
-                  export xyz =  ${{ github.inputs.ut-gradle-command }}
+                  export xyz =  (${{ github.inputs.ut-gradle-command }})
                   echo $xyz
 
