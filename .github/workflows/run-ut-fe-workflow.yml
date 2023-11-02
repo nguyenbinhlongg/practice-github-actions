@@ -8,7 +8,7 @@ on:
     workflow_call:
       inputs:
          myInput:
-            required: false
+            required: true
             type: 'string'
             default: 'test'
 jobs:
