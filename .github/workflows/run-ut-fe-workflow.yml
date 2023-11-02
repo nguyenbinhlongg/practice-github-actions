@@ -17,5 +17,5 @@ jobs:
         steps:
             - name: Run UT
               run: |
-                  echo "${{ github.event.inputs.myInput }}"
+                  echo "${{ github.event.inputs.myInput }} || 'default'"
 
