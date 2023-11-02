@@ -5,11 +5,19 @@ on:
       branches: [ main ]
     pull_request:
       branches: [ main ]
-
+    workflow_call:
+      inputs:
+         ut-gradle-command:
+            required: false
+            type: 'string'
+            default: 'test jacocoTestCoverageVerification'
 jobs:
     Run-unit-test:
         runs-on: ubuntu-latest
         steps:
+            - name: Run UT
+              run: |
+                  echo ${{ inputs.ut-gradle-command }}
             - uses: actions/checkout@v3
             - name: Use Node.js
               uses: actions/setup-node@v3
