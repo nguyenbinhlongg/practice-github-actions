@@ -10,7 +10,7 @@ on:
          ut-gradle-command:
             required: false
             type: 'string'
-            default: 'test jacocoTestCoverageVerification'
+            default: "test jacocoTestCoverageVerification"
 jobs:
     Run-unit-test:
         runs-on: ubuntu-latest
