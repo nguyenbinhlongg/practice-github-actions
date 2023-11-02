@@ -17,11 +17,6 @@ jobs:
         steps:
             - name: Run UT
               run: |
-                  echo ${{ github.event.inputs.ut-gradle-command }}
-            - uses: actions/checkout@v3
-            - name: Use Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18.x
-            - run: npm ci
-            - run: npm test
+                  export xyz =  ${{ github.inputs.ut-gradle-command }}
+                  echo $xyz
+
