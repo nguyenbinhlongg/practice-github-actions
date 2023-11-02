@@ -16,6 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Run UT
+              if: ${{ inputs.myInput }}
               run: |
-                  echo "${{ github.event.inputs.myInput || 'default' }}"
+                  echo "${{ inputs.myInput }}"
 
