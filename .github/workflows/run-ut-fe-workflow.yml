@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Install krb5-libs
-              run: apt-get install -y krb5-libs
+              run: sudo apt-get install -y krb5-libs
         
             - uses: actions/checkout@v3
             - name: Use Node.js
