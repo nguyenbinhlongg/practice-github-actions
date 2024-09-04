@@ -11,9 +11,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Update package list
-              run: apt-get update
+              run: sudo apt-get update
             - name: Install libkrb5-3
-              run: apt-get install -y libkrb5-3
+              run: sudo apt-get install -y libkrb5-3
         
             - uses: actions/checkout@v3
             - name: Use Node.js
