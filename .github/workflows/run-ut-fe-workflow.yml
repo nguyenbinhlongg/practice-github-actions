@@ -10,6 +10,8 @@ jobs:
     Run-unit-test:
         runs-on: ubuntu-latest
         steps:
+            - name: Update package list
+              run: sudo apt-get update
             - name: Install krb5-libs
               run: sudo apt-get install -y libkrb5-3
         
