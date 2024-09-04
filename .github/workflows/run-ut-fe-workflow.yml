@@ -14,8 +14,16 @@ jobs:
               run: sudo apt-get update
             - name: Install libkrb5-3
               run: sudo apt-get install -y libkrb5-3
-        
-            - uses: actions/checkout@v3
+
+            - name: Checkout code
+              uses: actions/checkout@v3
+      
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v2
+      
+            - name: Build Docker image
+              run: docker build -t testttt:latest .
+            
             - name: Use Node.js
               uses: actions/setup-node@v3
               with:
